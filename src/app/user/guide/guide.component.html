@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="contenBanniere">
+    <div class="left ms-5">
+        <p class="titres text-white fw-bold">GUIDE</p>
+        <p class="text-white">Bienvenue sur KAAY ENTREPRENDRE, l'endroit où l'expérience rencontre l'innovation, et où
+            les entrepreneurs chevronnés partagent leur sagesse avec ceux qui débutent leur parcours entrepreneurial.
+        </p>
+    </div>
+</div>
+<div class="container mt-5 mx-auto">
+    <div class="cartes">
+        <div class="mesCartes row  gap-3">
+            <ng-container *ngFor="let item of bdGuides" >
+                <div class="card col-md-5" id="carteProjet" >
+                    <div class="container mt-2">
+                        <p class="d-flex justify-content-between mt-md-0"><span class="fw-bold titre"> <span class="num">{{item.id}}.</span> {{item.titre}}</span> </p>
+                        <p class="card-text ">{{item.contenu}}</p>
+                        <button class="btn btnClose mt-1 consulter" [routerLink]="['/detailsGuide']">Voir</button>
+                    </div>
+                </div>
+            </ng-container>
+            <!-- pour la pagination -->
+            <div class="d-flex justify-content-center my-5">
+                <button class="btn btnClose me-2" [disabled]="pageActuelle === 1"
+                    (click)="pageActuelle = pageActuelle - 1">
+                    Précédent
+                </button>
+                <button class="btn ms-2" *ngFor="let page of pages" (click)="pageActuelle= page"
+                    [ngClass]="{'btnClose':pageActuelle==page}">
+                    {{ page }}
+                </button>
+                <button class="btn btnClose ms-2" [disabled]="pageActuelle === totalPages"
+                    (click)="pageActuelle = pageActuelle + 1">
+                    Suivant
+                </button>
+            </div>
+
+        </div>
+        <div class="even mb-5">
+            <h5>Evenements</h5>
+            <ng-container *ngFor="let event of bdEvent; let i=index">
+            <div class="cardEven" *ngIf="i<5">
+                <img [src]="event.image" style="width:80px;">
+                <p>{{event.nom}}</p>
+            </div>
+            </ng-container>
+            <button class="iconedroite" [routerLink]="['/evenement']">
+                Voir
+            </button>
+        </div>
+    </div>
+
+</div>
+<app-footer></app-footer>

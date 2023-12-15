@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="contenBanniere">
+    <div class="left ms-5">
+        <span class="fw-bold " id="bien">Bienvenu sur</span>
+        <p class="titres text-white fw-bold">Projet</p>
+        <p class="text-white">Bienvenue sur KAAY ENTREPRENDRE, l'endroit où l'expérience rencontre l'innovation, et où
+            les entrepreneurs chevronnés partagent leur sagesse avec ceux qui débutent leur parcours entrepreneurial.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div class="search mt-4">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Choisissez un secteur</option>
+            <option value="1">Sante</option>
+            <option value="2">Technologie</option>
+            <option value="3">agriculture</option>
+        </select>
+   
+    </div>
+    <div class="cardArticles mt-5 mb-5">
+        <div class="itemArticles" *ngFor="let projet of bdProjet">
+            <img [src]="projet.image"
+                alt="">
+            <h4>{{projet.titre}}</h4>
+            <p>{{projet.description}}</p>
+            <button class="iconedroite" [routerLink]="['/detailsCas']">
+                Voir
+            </button>
+        </div>
+        
+    <!-- pour la pagination -->
+    <div class=" poussetoi d-flex justify-content-center my-5">
+        <button class="btn btnClose  me-2" [disabled]="pageActuelle === 1" (click)="pageActuelle = pageActuelle - 1">
+            Précédent
+        </button>
+        <button class="btn ms-2" *ngFor="let page of pages" (click)="pageActuelle= page"
+            [ngClass]="{'btnClose':pageActuelle==page}">
+            {{ page }}
+        </button>
+        <button class="btn btnClose ms-2" [disabled]="pageActuelle === totalPages"
+            (click)="pageActuelle = pageActuelle + 1">
+            Suivant
+        </button>
+    </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

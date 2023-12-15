@@ -1,0 +1,45 @@
+.contenBanniere {
+    margin-top: 5%;
+    background-color: #60b8c4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: 85vh;
+    padding-top: 5%;
+}
+
+.titres {
+    font-size: 70px;
+}
+.zone{
+    display: flex;
+    border: thin solid #60B8C4;
+    padding: 8px;
+  
+}
+.forum{
+    width: 25%;
+    border: thin solid #60B8C4;
+}
+.sms{
+    background-color: #60B8C4;
+    color: #fff;
+    border: none;
+    width: 25%;
+    float: right;
+}
+.carteF img{
+    height: 150px;
+    width: 400px;
+}
+.btnAjout {
+    background-color: #60b8c4;
+    color: white;
+    font-weight: bold;
+}
+
+.btnClose {
+    outline: 1px solid #60b8c4;
+    color: #60b8c4;
+    font-weight: bold;
+}
